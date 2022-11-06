@@ -1,0 +1,11 @@
+{
+  "name": "ms-generador",
+  "version": "1.0.0",
+  "description": "Microservicio Generador de Numeros",
+  "scripts": {
+    "start": "node ./src/send.js"
+  },
+  "dependencies": {
+    "amqplib": "latest"
+  }
+}

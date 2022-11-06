@@ -1,0 +1,11 @@
+{
+  "name": "ms-sumador",
+  "version": "1.0.0",
+  "description": "Servicio sumador de numeros",
+  "scripts": {
+    "start": "node ./src/receive.js"
+  },
+  "dependencies": {
+    "amqplib": "latest"
+  }
+}
