@@ -18,7 +18,7 @@ amqp.connect('amqp://localhost', function(error0, connection) {
             durable: false
         });
 
-        console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", queue);
+        console.log(" [*] Esperando por mensajes en la cola [ %s ]. Para finalizar presione CTRL+C", queue);
 
         // Consumir un mensaje si está disponible
         channel.consume(queue, function(msg) {
