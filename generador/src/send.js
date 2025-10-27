@@ -2,7 +2,15 @@
 var amqp = require('amqplib/callback_api');
 
 // Conectarse al server Rabbit
-amqp.connect('amqp://localhost', function(error0, connection) {
+// A partir de RabbitMQ 4+ el broker requiere un frame_max mínimo de 8192.
+// amqplib usa por defecto un frameMax pequeño en versiones antiguas; forzamos
+// uno mayor al conectar para evitar "Socket closed abruptly during opening handshake".
+amqp.connect({
+    protocol: 'amqp',
+    hostname: 'localhost',
+    port: 5672,
+    frameMax: 0xFFFF
+}, function(error0, connection) {
     if (error0) {
         throw error0;
     }

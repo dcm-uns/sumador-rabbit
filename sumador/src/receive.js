@@ -2,7 +2,14 @@
 var amqp = require('amqplib/callback_api');
 
 // Conectarse al servidor RabbitMQ
-amqp.connect('amqp://localhost', function(error0, connection) {
+// Forzamos frameMax >= 8192 (requisito en RabbitMQ 4+) para que no falle el
+// handshake al negociar parámetros de conexión.
+amqp.connect({
+    protocol: 'amqp',
+    hostname: 'localhost',
+    port: 5672,
+    frameMax: 0xFFFF
+}, function(error0, connection) {
     if (error0) {
         throw error0;
     }
